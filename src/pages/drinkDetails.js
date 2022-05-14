@@ -3,17 +3,19 @@ import propTypes from 'prop-types';
 import RecipeDetails from '../components/recipesDetails/recipeDetails';
 import Context from '../context/Context';
 import fetchRecipesAPI from '../services/fetchRecipesAPI';
-import RecomentationRecipe from '../components/recipesDetails/recomendationRecipe';
+// import RecomentationRecipe from '../components/recipesDetails/recomendationRecipe';
 import StartContinueFinishButton from
 '../components/recipesDetails/startContinueFinishButton';
+// import Header from '../components/Header';
+import BottomMenu from '../components/BottomMenu';
 
 function DrinkDetails({ match, pageName }) {
   const { idRecipe } = match.params;
   const {
     drinkDetails,
     setDrinkDetails,
-    allDrinkRecipes,
-    setAllDrinkRecipes,
+    // allDrinkRecipes,
+    // setAllDrinkRecipes,
   } = useContext(Context);
 
   useEffect(() => {
@@ -23,21 +25,24 @@ function DrinkDetails({ match, pageName }) {
 
   const { drinks } = drinkDetails;
   // console.log('drinks: ', drinks);
-  const urlFoodRecipes = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+  // const urlFoodRecipes = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
   const recipeType = 'drink';
 
   return (
-    <div>
-      {drinks && drinks.map((drink) => (
-        <RecipeDetails key={ drink.idDrink } recipe={ drink } page={ pageName } />
-      )) }
-      <RecomentationRecipe
-        urlRecipesApi={ urlFoodRecipes }
-        stateContext={ allDrinkRecipes }
-        setStateContext={ setAllDrinkRecipes }
-      />
-      {drinks && StartContinueFinishButton(drinks, recipeType, pageName)}
-    </div>
+    <section>
+      <div className="beb">
+        {drinks && drinks.map((drink) => (
+          <RecipeDetails key={ drink.idDrink } recipe={ drink } page={ pageName } />
+        )) }
+        {/* <RecomentationRecipe
+          urlRecipesApi={ urlFoodRecipes }
+          stateContext={ allDrinkRecipes }
+          setStateContext={ setAllDrinkRecipes }
+        /> */}
+        {drinks && StartContinueFinishButton(drinks, recipeType, pageName)}
+      </div>
+      <BottomMenu />
+    </section>
   );
 }
 

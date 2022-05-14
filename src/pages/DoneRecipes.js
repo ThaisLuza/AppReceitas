@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BottomMenu from '../components/BottomMenu';
 import Card from '../components/DoneRecipes/Card';
 import Header from '../components/Header';
 
@@ -7,7 +8,11 @@ function DoneRecipes() {
   const getRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
   function showCards() {
     if (getRecipes === null || getRecipes.length < 1) {
-      return <p>Você não finalizou nenhuma receita</p>;
+      return (
+        <div className="foodPage">
+          <p>Você não finalizou nenhuma receita</p>
+        </div>
+      );
     }
     if (pressedBtn === 'all') {
       return (getRecipes.map((recipe, index) => (
@@ -75,6 +80,7 @@ function DoneRecipes() {
       <ul className="ul-cards-done-recipes">
         { showCards() }
       </ul>
+      <BottomMenu />
     </section>
   );
 }

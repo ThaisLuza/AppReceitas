@@ -14,26 +14,30 @@ function RecipeDetails({ recipe, page, recipeType }) {
         image={ recipe.strMealThumb || recipe.strDrinkThumb }
         category={ recipe.strAlcoholic || recipe.strCategory }
       />
-      <FavoriteButton recipe={ recipe } />
-      <ShareButton />
-      {page === 'details'
-        ? <IngredientList recipe={ recipe } />
-        : <IngredientListCheck recipe={ recipe } recipeType={ recipeType } />}
-      <h4>
-        Instruções
-      </h4>
-      <p data-testid="instructions">
-        {recipe.strInstructions}
-      </p>
-      {recipe.strYoutube && (
-        <iframe
-          data-testid="video"
-          title={ recipe.strMeal }
-          width="420"
-          height="315"
-          src={ recipe.strYoutube.replace('watch?v=', 'embed/') }
-        />
-      )}
+      <div className="foodPage">
+        <div style={ { display: 'flex' } }>
+          <FavoriteButton recipe={ recipe } />
+          <ShareButton />
+        </div>
+        {page === 'details'
+          ? <IngredientList recipe={ recipe } />
+          : <IngredientListCheck recipe={ recipe } recipeType={ recipeType } />}
+        <h4>
+          Instruções
+        </h4>
+        <p data-testid="instructions">
+          {recipe.strInstructions}
+        </p>
+        {recipe.strYoutube && (
+          <iframe
+            data-testid="video"
+            title={ recipe.strMeal }
+            width="360"
+            height="280"
+            src={ recipe.strYoutube.replace('watch?v=', 'embed/') }
+          />
+        )}
+      </div>
     </section>
   );
 }

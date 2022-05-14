@@ -6,6 +6,17 @@
   height: 100vh;
 } */
 
+
+body {
+  background-image: url('../src/images/appFundo.jpg');
+}
+
+.foodPage {
+  background-color: white;
+  padding:10px;
+  margin-top: 10px;
+}
+
 /* .carousel {
   display: flex;
   flex-wrap: wrap;
@@ -14,10 +25,11 @@
   width: 50%;
  } */
 
+
 .section-form-login {
   align-items: center;
 
-  /* background-image: url('https://media.istockphoto.com/photos/cookbook-with-vegetables-spices-and-herbs-shot-from-above-on-rustic-picture-id1125612329?k=20&m=1125612329&s=612x612&w=0&h=Y8wMGxEgJQb_KzeVEMlWwOewvwi0FJCuvoQNQ3EnaOA='); */
+  background-image: url('https://i.pinimg.com/originals/96/d8/ab/96d8abce0111c8854123c045fab10722.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -227,11 +239,22 @@ header {
   box-shadow: 1px 1px 1px;
 }
 
+.sec, .beb {
+  position: relative;
+  width: 100%;
+  margin-bottom: 100px;
+  padding: 15px;
+}
+
+
 .recipe-cards {
-  align-items: center;
-  display: flex;
-  justify-content: space-evenly;
-  width: 50%;
+  position: absolute;
+  /* box-shadow: 0.001px 5px 3px rgb(185, 185, 185);
+  font-size: 14pt;
+  margin: 10px;
+  text-align: center; */
+  
+
 }
 
 .recipe-card {
@@ -277,6 +300,7 @@ footer section {
   justify-content: space-between;
   margin: 5px 10px;
 }
+
 
 .recipe-card-div-img {
   margin-bottom: 5px;
@@ -544,6 +568,8 @@ footer section {
   font-family: Poppins , sans-serif;
   text-align: center;
 }
+
+
 
 @keyframes shake {
 

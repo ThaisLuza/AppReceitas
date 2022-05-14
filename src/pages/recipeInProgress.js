@@ -5,6 +5,8 @@ import StartContinueFinishButton from
 '../components/recipesDetails/startContinueFinishButton';
 import Context from '../context/Context';
 import fetchRecipesAPI from '../services/fetchRecipesAPI';
+import Header from '../components/Header';
+import BottomMenu from '../components/BottomMenu';
 
 function RecipeInProgress({ match, recipeType, pageName }) {
   const { idRecipe } = match.params;
@@ -29,17 +31,22 @@ function RecipeInProgress({ match, recipeType, pageName }) {
   const recipeProgress = meals || drinks;
 
   return (
-    <section>
-      {recipeProgress && recipeProgress.map((recipe, index) => (
-        <RecipeDetails
-          key={ index }
-          recipe={ recipe }
-          page="progress"
-          recipeType={ recipeType }
-        />
-      )) }
-      {recipeProgress && StartContinueFinishButton(recipeProgress, recipeType, pageName)}
-    </section>
+    <div>
+      <Header />
+      <section>
+        {recipeProgress && recipeProgress.map((recipe, index) => (
+          <RecipeDetails
+            key={ index }
+            recipe={ recipe }
+            page="progress"
+            recipeType={ recipeType }
+          />
+        )) }
+        {recipeProgress
+        && StartContinueFinishButton(recipeProgress, recipeType, pageName)}
+      </section>
+      <BottomMenu />
+    </div>
   );
 }
 

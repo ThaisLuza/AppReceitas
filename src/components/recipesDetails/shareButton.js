@@ -31,7 +31,7 @@ function ShareButton() {
   };
 
   return (
-    <div>
+    <div style={ { marginLeft: '10px' } }>
       {linkCopied && <span>Link copied!</span>}
       <button
         type="button"

@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 
 function RecipeCard({ title, image, category, testid }) {
   return (
-    <Card border="dark" data-testid={ testid } className="recipe-cards">
+    <Card data-testid={ testid } className="recipe-cards">
       <Card.Img
         variant="top"
         src={ image }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BottomMenu from '../components/BottomMenu';
 import Card from '../components/FavoriteRecipes/Card';
 import Header from '../components/Header';
 
@@ -7,22 +8,31 @@ function FavoriteRecipes() {
   const getRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
   function showCards() {
     if (getRecipes === null || getRecipes.length === 0) {
-      return <p>Você não favoritou nenhuma receita</p>;
+      return (
+        <div className="foodPage">
+          <p>Você não favoritou nenhuma receita</p>
+        </div>
+      );
     }
     if (pressedBtn === 'all') {
-      return (getRecipes.map((recipe, index) => (
-        <Card
-          id={ recipe.id }
-          type={ recipe.type }
-          nationality={ recipe.nationality }
-          category={ recipe.category }
-          alcoholicOrNot={ recipe.alcoholicOrNot }
-          name={ recipe.name }
-          image={ recipe.image }
-          key={ recipe.id }
-          index={ index }
-        />
-      )));
+      return (
+        <div className="foodPage">
+          {' '}
+          {getRecipes.map((recipe, index) => (
+            <Card
+              id={ recipe.id }
+              type={ recipe.type }
+              nationality={ recipe.nationality }
+              category={ recipe.category }
+              alcoholicOrNot={ recipe.alcoholicOrNot }
+              name={ recipe.name }
+              image={ recipe.image }
+              key={ recipe.id }
+              index={ index }
+            />
+          ))}
+        </div>
+      );
     }
     return (getRecipes.filter((recipe) => recipe.type === pressedBtn)
       .map((recipe, index) => (
@@ -71,6 +81,7 @@ function FavoriteRecipes() {
       <ul className="ul-cards-favorite-recipes">
         { showCards() }
       </ul>
+      <BottomMenu />
     </section>
   );
 }
